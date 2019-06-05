@@ -4,9 +4,9 @@ import java.util.List;
 
 public class Template {
 	public static void main(String[] args) {
-				
+		//in this class use Patterns and Matches - it will be useful!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 	}
-	
+	//this move to class Variables, use hash map!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	public static void csv(String[] args) {
 		for (String arg : args) {
 			if (arg.startsWith("--csv=")) {
@@ -43,18 +43,18 @@ public class Template {
 	
 	
 	public static void templet(List<String> input) {
-		String cheque = "Od: Dodavatel elektøtiny\r\n" + 
+		String cheque = "Od: Dodavatel elektï¿½tiny\r\n" + 
 				"Pro: {{ zakaznik }}\r\n" + 
-				"Vìc: Úhrada za mìsíc {{ mesic }} {{ rok }}\r\n" + 
+				"Vï¿½c: ï¿½hrada za mï¿½sï¿½c {{ mesic }} {{ rok }}\r\n" + 
 				" \r\n" + 
-				"Dobrý den,\r\n" + 
-				"  posíláme informace k zaplacení úhrady za další mìsíc.\r\n" + 
+				"Dobrï¿½ den,\r\n" + 
+				"  posï¿½lï¿½me informace k zaplacenï¿½ ï¿½hrady za dalï¿½ï¿½ mï¿½sï¿½c.\r\n" + 
 				" \r\n" + 
 				"S pozdravem,\r\n" + 
-				" loupežníci\r\n" + 
+				" loupeï¿½nï¿½ci\r\n" + 
 				" \r\n" + 
-				"Variabilní symbol: {{ vs }}\r\n" + 
-				"Èástka: {{ castka }} Kè\r\n" + 
-				"Uhraïte na úèet: 000-123456789/1234";
+				"Variabilnï¿½ symbol: {{ vs }}\r\n" + 
+				"ï¿½ï¿½stka: {{ castka }} Kï¿½\r\n" + 
+				"Uhraï¿½te na ï¿½ï¿½et: 000-123456789/1234";
 	}
 }
