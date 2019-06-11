@@ -1,39 +1,58 @@
 package cz.alisma.alej.text.wrapping;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class CSVReplacement {
-	public static String CSVName = null;
-	public static String TemplateName;
-	public static String OutputName = null;
+	public static String CSVName = null; //could be undefined
+	public static String TemplateName; //should be defined
+	public static String OutputName = null; //could be undefined
 
 	public static void main(String[] args) throws IOException {
+		//input processing
 		csvArguments(args);
-		Scanner vars;
+		Scanner fileCSV;
 		if (CSVName == null) {
-			vars = new Scanner(System.in);
-			vars.close(); //lets try if it would work here
+			fileCSV = new Scanner(System.in);
 		}
 		else {
-			vars = new Scanner(new File(CSVName));
+			fileCSV = new Scanner(new File(CSVName));
 		}
 		
+		int templateNumber = 1;
+		String[] varsNames = fileCSV.nextLine().split(",");
 		
-		
-		
-		String outputFile;
-		
-		if (OutputName == null) {
-			outputFile = String.format("--out=templater-out-%05d.txt", 0); //replace the 0 with sth
+		//for each line
+		while (fileCSV.hasNextLine()) {
+			Scanner template = new Scanner(new File(TemplateName));
+			Map<String, String> mapOfVarsAndValues = new HashMap<>();
+			String[] valuesNames = fileCSV.nextLine().split(",");
+			
+			for (int i = 0; i < valuesNames.length; i++) {
+				mapOfVarsAndValues.put(varsNames[i], valuesNames[i]);
+			}
+			
+			String output;
+			if (OutputName == null) {
+				output = String.format("--out=templater-out-%05d.txt", templateNumber);
+			}
+			else {
+				output = String.format(OutputName, templateNumber);
+			}
+			
+			templateNumber++;
+			//writing into file with FileWriter
+			FileWriter outputFile = new FileWriter(new File(output));
+			outputFile.write(Template.valuesReplaceVars(template, mapOfVarsAndValues));
+			outputFile.close();
+			template.close();			
 		}
-		else {
-			String name = OutputName; //tbd
-		}
 		
+		fileCSV.close();		
 	}
 	
 	public static void csvArguments(String[] args) {
@@ -49,11 +68,4 @@ public class CSVReplacement {
 			}
 		}
 	}
-	
-	public static Map<String, String> mapOfVarsAndValues() {
-		Map<String, String> map = new HashMap<>();
-		
-		return map;
-	}
-
 }

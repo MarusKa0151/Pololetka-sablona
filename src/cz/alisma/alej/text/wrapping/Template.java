@@ -10,7 +10,7 @@ public class Template {
 	public static String valuesReplaceVars(Scanner template, Map<String, String> vars) {
 		//using Patterns and Matches, learned from https://www.tutorialspoint.com/java/java_regular_expressions.htm
 		StringBuilder output = new StringBuilder();
-		Pattern recognizeVars = Pattern.compile("\\{\\{ \\w+ \\}\\}");
+		Pattern recognizeVars = Pattern.compile("\\{\\{ \\w+ \\}\\}"); //searching for {{ variable }}
 		
 		while (template.hasNextLine()) {
 			String line = template.nextLine();
