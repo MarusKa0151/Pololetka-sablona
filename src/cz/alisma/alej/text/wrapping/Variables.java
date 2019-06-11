@@ -1,14 +1,17 @@
 package cz.alisma.alej.text.wrapping;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Variables {
+	static boolean isCSV = false;
 
-	public Variables() {
-		// TODO Auto-generated constructor stub
+	public Variables(String[] inputVars) {
+		//use hash map!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		//move this class to SimpleReplacement and CSVReplacement, it would be better
+		
 	}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
+	
+	
 
 }
