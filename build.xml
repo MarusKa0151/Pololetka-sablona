@@ -92,7 +92,7 @@
     <target name="example"
             depends="jar"
             description="Example execution: reformat LICENSE file.">
-        <java jar="out/jars/app.jar" fork="true" input="LICENSE" />
+        <java jar="out/jars/simple.jar" fork="true" input="LICENSE" />
     </target>
 
     <target name="clean"
