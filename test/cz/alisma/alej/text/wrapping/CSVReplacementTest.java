@@ -27,24 +27,5 @@ public class CSVReplacementTest {
 		CSVReplacement.csvArguments(args);
 		
 		assertEquals("templater-out-%05d.txt", CSVReplacement.OutputName);
-	}
-	
-	//tbd!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	@Test
-	public void oneCustomer() {
-		
-	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	}	
 }
