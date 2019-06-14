@@ -12,6 +12,21 @@ public class CSVReplacement {
 	public static String TemplateName; //should be defined
 	public static String OutputName = null; //could be undefined
 
+	//arguments processing
+	public static void csvArguments(String[] args) {
+		for (String arg : args) {
+			if (arg.startsWith("--csv=")) {
+				CSVName = arg.substring(6);
+			}
+			else if (arg.startsWith("--template=")) {
+				TemplateName = arg.substring(11);
+			}
+			else if (arg.startsWith("--out=")) {
+				OutputName = arg.substring(6);
+			}
+		}
+	}
+	
 	public static void main(String[] args) throws IOException {
 		//input processing
 		csvArguments(args);
@@ -53,19 +68,5 @@ public class CSVReplacement {
 		}
 		
 		fileCSV.close();		
-	}
-	
-	public static void csvArguments(String[] args) {
-		for (String arg : args) {
-			if (arg.startsWith("--csv=")) {
-				CSVName = arg.substring(6);
-			}
-			else if (arg.startsWith("--template=")) {
-				TemplateName = arg.substring(11);
-			}
-			else if (arg.startsWith("--out=")) {
-				OutputName = arg.substring(6);
-			}
-		}
-	}
+	}	
 }

@@ -4,14 +4,14 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 
 public class Template {
 		
-	public static String valuesReplaceVars(Scanner template, Map<String, String> vars) {
+	public static String valuesReplaceVars(Scanner template, Map<String, String> vars) throws PatternSyntaxException {
 		//using Patterns and Matches, learned from https://www.tutorialspoint.com/java/java_regular_expressions.htm
 		StringBuilder output = new StringBuilder();
 		Pattern recognizeVars = Pattern.compile("\\{\\{ [\\w ]+ \\}\\}"); //searching for {{ variable }}
-		//idk why i should use [] in this but then the spaceInVariable test started working...
 		
 		while (template.hasNextLine()) {
 			String line = template.nextLine();
@@ -28,7 +28,7 @@ public class Template {
 				output.append(String.format("%s\n", line));
 			}
 			else {
-				output.append(line); //without the last empty line
+				output.append(line);
 			}
 		}	
 		
